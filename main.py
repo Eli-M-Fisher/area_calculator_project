@@ -1,3 +1,9 @@
+"""
+Main module for the Area Shape Resolver Calculator.
+
+Provides a command-line interface for users to select a geometric shape,
+input its dimensions, and receive calculated area and perimeter values.
+"""
 from shapes.rectangle import Rectangle
 from shapes.square import Square
 from shapes.triangle import Triangle
@@ -5,6 +11,17 @@ from shapes.circle import Circle
 from shapes.hexagon import Hexagon
 
 def get_positive_number(prompt: str) -> float:
+    """
+    Prompt the user to enter a positive numeric value.
+
+    Repeats until the user provides a valid float greater than zero.
+
+    Args:
+        prompt (str): The message displayed to the user.
+
+    Returns:
+        float: A validated positive number.
+    """
     while True:
         try:
             value = input(prompt).strip()
@@ -20,6 +37,17 @@ def get_positive_number(prompt: str) -> float:
             print("Invalid input. Please enter a numeric value.")
 
 def create_shape(shape_type: str):
+    """
+    Create a shape instance based on the provided shape type.
+
+    Prompts the user for relevant dimensions depending on the shape type.
+
+    Args:
+        shape_type (str): The type of shape to create.
+
+    Returns:
+        Shape | None: A shape instance if type is valid, otherwise None.
+    """
     shape_type = shape_type.strip().lower()
 
     if shape_type == "rectangle":
@@ -49,6 +77,11 @@ def create_shape(shape_type: str):
         return None
 
 def main():
+    """
+    Main interactive loop for the Area Shape Resolver Calculator.
+
+    Handles user input, creates shapes, and displays results. Exits on user request or keyboard interrupt.
+    """
     print("=== Area Shape Resolver Calculator ===")
     print("Available shapes: rectangle, square, triangle, circle, hexagon")
 
