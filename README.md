@@ -1,0 +1,1 @@
+# Area Shape Resolver Calculator
